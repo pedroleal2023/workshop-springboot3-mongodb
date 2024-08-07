@@ -17,6 +17,7 @@ import com.coursests.workshopmongo.domain.User;
 import com.coursests.workshopmongo.dto.UserDTO;
 import com.coursests.workshopmongo.services.UserService;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
@@ -54,4 +55,13 @@ public class UserResource {
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}
+	
+	@PutMapping("{id}")
+	public ResponseEntity<Void> update(@RequestBody UserDTO objDTO, @PathVariable String id){
+		User obj = service.fromDTO(objDTO);
+		obj.setId(id);
+		obj = service.update(obj);
+		return ResponseEntity.noContent().build();
+	}
+	
 }

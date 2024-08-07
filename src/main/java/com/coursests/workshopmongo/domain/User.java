@@ -2,67 +2,66 @@ package com.coursests.workshopmongo.domain;
 
 import java.io.Serializable;
 import java.util.Objects;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection="user")
+@Document(collection = "user")
 public class User implements Serializable {
-	private static final long serialVersionUID = 1L;
-	
-	@Id
-	private String id;
-	private String name;
-	private String email;
-	
-	public User() {
-	}
+    private static final long serialVersionUID = 1L;
 
-	public User(String id, String name, String email) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.email = email;
-	}
+    @Id
+    private String id;
+    private String name;
+    private String email;
 
-	public String getId() {
-		return id;
-	}
+    public User() {
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public User(String id, String name, String email) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.email = email;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		User other = (User) obj;
-		return Objects.equals(id, other.id);
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        User other = (User) obj;
+        return Objects.equals(id, other.id);
+    }
 }

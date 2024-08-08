@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.coursests.workshopmongo.domain.Post;
 import com.coursests.workshopmongo.domain.User;
+import com.coursests.workshopmongo.dto.AuthorDTO;
 import com.coursests.workshopmongo.repository.PostRepository;
 import com.coursests.workshopmongo.repository.UserRepository;
 
@@ -36,11 +37,11 @@ public class instantiation implements CommandLineRunner{
 		User alex = new User(null, "Alex Green", "alex@gmail.com");
 		User bob = new User(null, "Bob Grey", "bob@gmail.com");
 		
-		Post post1 = new Post(null, sdf.parse("21/03/2018"), "Partiu viagem!", "Vou pra São Paulo!", maria);
-		Post post2 = new Post(null, sdf.parse("22/03/2018"), "bom dia.", "Acordei feliz hoje!", maria);
-		
-		
 		userRepository.saveAll(Arrays.asList(maria, alex, bob));
+		
+		Post post1 = new Post(null, sdf.parse("21/03/2018"), "Partiu viagem!", "Vou pra São Paulo!", new AuthorDTO(maria));
+		Post post2 = new Post(null, sdf.parse("22/03/2018"), "bom dia.", "Acordei feliz hoje!", new AuthorDTO(maria));
+		
 		postRepository.saveAll(Arrays.asList(post1, post2));
 	}
 
